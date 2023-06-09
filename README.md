@@ -1,6 +1,7 @@
 # buffer_overflow_winXP
-
+Tool : Virtual Machine WinXP, Immunity Debugger, Minishare
 The Guideline for Buffer Overflow Attack 
+
 Kali Linux: attacker (192.168.37.128) | Windows XP: victim (192.168.37.134)
 --------------------------------------------------------------------------------------------------
 -Step1: (Windows), open Minishare, Immunity Debugger/Attach/Minishare

